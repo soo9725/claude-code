@@ -1,5 +1,8 @@
 {
   "model": "sonnet",
+  "language": "Korean",
   "theme": "dark",
-  "language": "Korean"
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true,
+  "inputNeededNotifEnabled": true
 }
