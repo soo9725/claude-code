@@ -12,3 +12,10 @@
 # 계정 동기화 스킬과 휴지통은 제외
 skills/synced/
 skills/.trash/
+# 프로젝트별 memory 폴더만 허용 (대화 기록 .jsonl 등은 제외)
+!projects/
+projects/*
+!projects/*/
+projects/*/*
+!projects/*/memory/
+!projects/*/memory/**
