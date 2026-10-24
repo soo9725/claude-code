@@ -1,1 +1,0 @@
-- [전역 설정 임의 변경 금지](feedback_no-global-config-additions.md) — 사용자가 말하기 전까지 ~/.claude 전역 설정에 아무것도 추가하지 않는다
