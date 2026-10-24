@@ -1,0 +1,14 @@
+# 전부 무시하고, 필요한 것만 허용
+*
+!.gitignore
+!CLAUDE.md
+!settings.json
+!agents/
+!agents/**
+!commands/
+!commands/**
+!skills/
+!skills/**
+# 계정 동기화 스킬과 휴지통은 제외
+skills/synced/
+skills/.trash/
