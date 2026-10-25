@@ -1,8 +1,27 @@
 {
-  "model": "sonnet",
+  "model": "opus",
+  "enabledPlugins": {
+    "superpowers@superpowers-marketplace": false,
+    "frontend-design@claude-plugins-official": true,
+    "ui-ux-pro-max@ui-ux-pro-max-skill": true
+  },
+  "extraKnownMarketplaces": {
+    "superpowers-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "obra/superpowers-marketplace"
+      }
+    },
+    "ui-ux-pro-max-skill": {
+      "source": {
+        "source": "github",
+        "repo": "nextlevelbuilder/ui-ux-pro-max-skill"
+      }
+    }
+  },
   "language": "Korean",
   "theme": "dark",
   "remoteControlAtStartup": true,
-  "agentPushNotifEnabled": true,
-  "inputNeededNotifEnabled": true
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true
 }
