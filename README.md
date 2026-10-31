@@ -1,6 +1,6 @@
 # claude-code
 
-Claude Code 전역 설정(`~/.claude`) 저장소. 이 저장소에 올라가는 것은 `CLAUDE.md`, `settings.json`, `skills/`, `agents/`, 이 문서뿐이다. 대화 기록, 로그인 정보, 메모리, 플러그인 캐시는 올리지 않는다.
+Claude Code 전역 설정(`~/.claude`) 저장소. 이 저장소에 올라가는 것은 `CLAUDE.md`, `settings.json`, `environment.md`, `skills/`, `agents/`, `hooks/`, 이 문서뿐이다. 대화 기록, 로그인 정보, 메모리, 플러그인 캐시는 올리지 않는다.
 
 ## 스킬
 
@@ -20,12 +20,22 @@ Claude Code 전역 설정(`~/.claude`) 저장소. 이 저장소에 올라가는 
 | 이름 | 설명 |
 |---|---|
 | ponytail-reviewer | ponytail-review 스킬을 가지고 코드 변경을 읽기 전용으로 검토하는 에이전트 |
+| test-designer | 구현 전에 계획서(`plan.md`)의 규칙만 보고 테스트 코드를 쓰는 에이전트. 구현 코드의 내부는 읽지 않는다 |
+| step-evaluator | 단계가 끝났을 때 완료 기준, diff, 검사 결과, 스크린샷만 보고 판정하는 읽기 전용 에이전트. 모델은 opus |
 
 ## 훅
 
-| 이름 | 설명 |
-|---|---|
-| 없음 | 전역 설정에 직접 등록한 훅은 없다. superpowers 플러그인은 세션 시작 훅을 포함하므로 켜면 훅이 동작한다 |
+`hooks/` 폴더의 스크립트를 `settings.json`에 등록한다. superpowers 플러그인은 세션 시작 훅을 포함하므로 켜면 그 훅도 동작한다.
+
+| 이름 | 시점 | 설명 |
+|---|---|---|
+| guard.mjs | PreToolUse (Bash, PowerShell) | 삭제 명령, 전역 설정 수정, 토큰 파일 접근, 푸시를 실행 직전에 확인시킨다. 푸시 전에는 추적 파일의 개인 경로와 토큰 모양을 검사한다 |
+| notify.ps1 | Notification | 입력을 기다릴 때 Windows 토스트 알림을 띄운다. 알림은 Windows PowerShell 이름으로 뜬다 |
+
+## 환경과 권한
+
+- `environment.md`: 이 컴퓨터의 OS, 도구 버전, 셸, VS Code 확장에서 안 되는 명령을 적은 파일. `CLAUDE.md`가 읽으라고 안내한다. 값이 낡으면 다시 조회해서 고친다.
+- `settings.json`의 `permissions`: 읽기와 로컬 커밋은 허용, 삭제·푸시·패키지 설치·전역 설정 수정은 실행 직전에 묻고, 강제 푸시와 `git reset --hard`와 레지스트리 변경은 막는다.
 
 ## MCP
 

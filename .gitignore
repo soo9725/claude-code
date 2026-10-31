@@ -5,6 +5,9 @@
 !settings.json
 !agents/
 !agents/**
+!hooks/
+!hooks/**
+!environment.md
 !commands/
 !commands/**
 !skills/
