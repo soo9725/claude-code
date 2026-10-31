@@ -80,9 +80,10 @@ if (touchesGlobalDir && looksLikeWrite) ask('전역 설정(~/.claude)을 수정�
 
 if (/(^|[\s;&|(])git\s+push\b/.test(command)) {
   const findings = scanTrackedFiles()
+  const scanned = process.env.CLAUDE_PROJECT_DIR || process.cwd()
   ask(
     findings.length === 0
-      ? '푸시 전 검사: 추적 중인 파일에서 개인 경로나 토큰 모양이 발견되지 않았습니다. 푸시할까요?'
-      : `푸시 전 검사에서 ${findings.length}건이 발견됐습니다. 확인 후 푸시해 주세요.\n` + findings.slice(0, 10).join('\n'),
+      ? `푸시 전 검사(검사한 폴더: ${scanned}): 추적 중인 파일에서 개인 경로나 토큰 모양이 발견되지 않았습니다. 다른 폴더를 푸시한다면 이 결과는 해당되지 않습니다. 푸시할까요?`
+      : `푸시 전 검사(검사한 폴더: ${scanned})에서 ${findings.length}건이 발견됐습니다. 확인 후 푸시해 주세요.\n` + findings.slice(0, 10).join('\n'),
   )
 }
