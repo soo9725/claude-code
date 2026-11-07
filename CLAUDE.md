@@ -98,7 +98,8 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - Loop until verified (guideline 4). Stop after 3 failed check runs in a row.
 - Do not change a test to make it pass. If a test is wrong, stop and tell the user.
 - Use a separate agent to design tests from plan.md. Use a separate agent (opus) to evaluate.
-- Write "evaluation agent: used" or "not used" in every report.
+- After the checks pass, run the ponytail-reviewer agent on the changes. Fix its findings. Then run the evaluation agent.
+- Write "review agent: used" or "not used" and "evaluation agent: used" or "not used" in every report.
 - Write a check that you did not run as "확인 못 함". Do not conclude "absent" from missing evidence.
 
 ## Safety
@@ -108,4 +109,4 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - Before a push, run git status. Check for renamed or new files.
 
 ## Report format (write in Korean)
-단계 / 검사 결과(PASS·FAIL) / 평가 에이전트 사용 여부와 판정 / 사용자가 직접 확인할 항목 / 계획서에 없는 사례
+단계 / 검사 결과(PASS·FAIL) / 코드 리뷰 사용 여부와 지적 / 평가 에이전트 사용 여부와 판정 / 사용자가 직접 확인할 항목 / 계획서에 없는 사례

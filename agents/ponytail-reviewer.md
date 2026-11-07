@@ -2,6 +2,7 @@
 name: ponytail-reviewer
 description: Reviews code changes for bugs, security, load, missing tests, speed and unneeded code. Use proactively after code has been written or changed, and whenever a review of a diff, commit, branch or PR is needed.
 tools: Read, Grep, Glob, Bash
+model: opus
 skills:
   - ponytail-review
 ---
