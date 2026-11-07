@@ -103,7 +103,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 ## Safety
 - Change ~/.claude only when the user asks.
-- Ask before delete commands, git push, and package installs.
+- Ask before delete commands and git push.
 - Do not print tokens. Keep private notes in a git-ignored file.
 - Before a push, run git status. Check for renamed or new files.
 
